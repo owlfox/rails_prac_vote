@@ -1,12 +1,4 @@
 <h1> Add candidate </h1>
-
-<form action="/candidates" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="text" name="abc">
-    <input type="submit" value="go">
-</form>
-
-
 <%= form_for(@candidate) do | form |%>
 
 <div>
