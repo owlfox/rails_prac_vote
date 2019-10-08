@@ -7,6 +7,7 @@
 <table>
     <tr>
     <td>Name</td>
+    <td>Votes</td>
     <td>Age</td>
     <td>Party</td>
     <td>Politics</td>
@@ -16,11 +17,13 @@
     <% @candidates.each do |candidate| %>
     <tr>
         <td><%= link_to candidate.name, candidate_path(candidate.id) %></td>
+        <td><%= candidate.vote_logs.count %></td>
         <td><%= candidate.age %></td>
         <td><%= candidate.party %></td>
         <td><%= candidate.politics %></td>
         <td><%= link_to "update", edit_candidate_path(candidate.id) %></td>
         <td><%= link_to "delete", candidate_path(candidate.id ), method: 'delete', data: {confirm: 'Sure?'} %></td>
+        <td><%= link_to "vote", vote_candidate_path(candidate.id ), method: 'post' %></td>
         
     </tr>
     <% end %>
