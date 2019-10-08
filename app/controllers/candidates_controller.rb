@@ -40,6 +40,15 @@ class CandidatesController < ApplicationController
         end
     end
 
+    def destroy
+        @candidate = Candidate.find_by(id: params[:id])
+
+        @candidate.destroy
+        flash[:notice] = "candidate DESTROYED"
+        redirect_to '/candidates'
+        
+    end
+
     
 
     private

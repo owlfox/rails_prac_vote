@@ -20,6 +20,7 @@
         <td><%= candidate.party %></td>
         <td><%= candidate.politics %></td>
         <td><%= link_to "update", edit_candidate_path(candidate.id) %></td>
+        <td><%= link_to "delete", candidate_path(candidate.id ), method: 'delete', data: {confirm: 'Sure?'} %></td>
         
     </tr>
     <% end %>
