@@ -51,6 +51,8 @@ class CandidatesController < ApplicationController
         # VoteLog.create(candidate: @candidate, ip_address: request.remote_ip)
         @candidate.vote_logs.create( ip_address: request.remote_ip)
 
+        MailJobJob.perform_later
+
         @candidate.increment(:votes)
         @candidate.save
         flash[:notice] = "voted!"
